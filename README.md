@@ -5,7 +5,7 @@ This repository preserves the original R Markdown code, rendered reports, input 
 The four `.Rmd` files are preserved exactly as written in the original project. They have not been rewritten or silently corrected for this repository. Newly added documentation and reconstructed metadata are identified explicitly below.
 
 <div align="center">
-<img src="docs/escc_multiomics_hero.png" alt="ESCC tumor and adjacent normal multi-omics illustration" width="760">
+<img src="docs/project_overview.svg" alt="ESCC multi-omics project overview" width="760">
 </div>
 
 ## Project objective
