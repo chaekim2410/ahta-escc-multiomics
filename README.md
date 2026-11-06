@@ -43,6 +43,23 @@ The project is presented in four folders: [`A_Data_Overview/`](A_Data_Overview/)
 | 942 | GSM4775300 | GSM4775301 |
 | 933 | GSM4775302 | GSM4775303 |
 
+The phenotype used by the notebook is:
+
+| Sample ID | Patient ID | Tissue type |
+|---|---|---|
+| GSM4775294 | ca-973 | ESCC |
+| GSM4775295 | con-973 | NORMAL |
+| GSM4775296 | ca-962 | ESCC |
+| GSM4775297 | con-962 | NORMAL |
+| GSM4775298 | ca-944 | ESCC |
+| GSM4775299 | con-944 | NORMAL |
+| GSM4775300 | ca-942 | ESCC |
+| GSM4775301 | con-942 | NORMAL |
+| GSM4775302 | ca-933 | ESCC |
+| GSM4775303 | con-933 | NORMAL |
+
+The submitted PDF prints `GSM4775320` once in the overview table for the ca-933 ESCC sample. The actual IDAT filename and the phenotype file used by the notebook are `GSM4775302`; the README follows the actual input used for analysis and records the PDF typo here.
+
 The large IDAT files are not stored in Git. They are publicly available from [GEO GSE157807](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157807). The reconstructed phenotype and metadata are in [`A_Data_Overview/`](A_Data_Overview/); the reconstruction is explained in that folder's README.
 
 ### RNA-seq: GSE194116
@@ -140,6 +157,26 @@ The values below are the results reported in the original submitted analysis and
 - **C: RNA-seq** — 7,305 of 24,315 retained genes were reported as differentially expressed at FDR < 0.05.
 - **D: integration** — the submitted comparison reported 1,000 RNA/CpG-associated gene overlaps and 26 shared GO terms.
 
+### Major result figures
+
+The representative figures below are the ones that communicate the final analysis most directly. The full rendered reports remain available in each A–D folder.
+
+**RNA sample separation (MDS)**
+
+![RNA-seq MDS plot](C_RNA_seq/results/plotMDS_ESCC.jpg)
+
+**RNA versus CpG-associated genes**
+
+![RNA and CpG overlap](D_Integration/figures/venn_02.png)
+
+**RNA versus DMR-associated genes**
+
+![RNA and DMR overlap](D_Integration/figures/venn_01.png)
+
+**Shared RNA and methylation GO terms**
+
+![RNA and methylation GO overlap](D_Integration/figures/venn_03.png)
+
 ### Conclusion
 
 The project found widespread methylation differences and widespread expression differences between ESCC and matched normal tissue. The integration step found overlap at both the gene and biological-process levels, suggesting that some ESCC-related processes may be reflected in both epigenetic and transcriptional changes. The comparison is an association analysis; it does not establish that methylation directly caused the expression changes.
@@ -150,6 +187,7 @@ The project found widespread methylation differences and widespread expression d
 - The preserved MultiQC report is missing one of the 12 RNA-seq runs, and the original FASTQ files are not available in the project folder.
 - Kallisto, Trimmomatic, and HISAT2 were considered but were not completed as a project-generated upstream workflow; RNA analysis starts from the published count matrix.
 - The integration compares gene and GO overlap. It does not test causal regulation or validate methylation-expression relationships experimentally.
+- The submitted report notes a residual QQ-plot deviation from normality and a discrepancy involving `SPOCD1` compared with a published study; these require follow-up with sensitivity analyses or validation data.
 
 The submitted report and original rendered outputs should be consulted for the figures, tables, discussion, limitations, and interpretation:
 
