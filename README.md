@@ -16,10 +16,10 @@ The project asks whether ESCC-associated changes in DNA methylation coincide wit
 
 | Stage | Original code | Purpose |
 |---|---|---|
-| A. Data overview and QC | [`Data_Overview_Chaeyoung_Kim.Rmd`](Data_Overview_Chaeyoung_Kim.Rmd), [`multiqc_report.html`](multiqc_report.html) | Describe the datasets, phenotype, paired design, count matrix, and preserved FastQC/MultiQC quality summary. |
-| B. DNA methylation | [`Methylation_Analysis.Rmd`](Methylation_Analysis.Rmd), [`Methylation_Analysis_files/`](Methylation_Analysis_files/) | `minfi`/ENmix QC and preprocessing → normalization → paired limma CpG analysis → annotation → bumphunter DMRs → GO. |
-| C. RNA-seq expression | [`Analysis_raw_count.Rmd`](Analysis_raw_count.Rmd), [`rna_output/`](rna_output/) | Count filtering → edgeR normalization and paired differential expression → Ensembl/Entrez mapping → GO. |
-| D. Multi-omics comparison | [`results/Comparison.Rmd`](results/Comparison.Rmd), [`results/`](results/) | Compare RNA genes with CpG-associated and DMR-associated genes, then compare RNA and methylation GO terms. |
+| A. Data overview and QC | [`A_Data_Overview/`](A_Data_Overview/) | Describe the datasets, phenotype, paired design, count matrix, and preserved FastQC/MultiQC quality summary. |
+| B. DNA methylation | [`B_DNA_Methylation/`](B_DNA_Methylation/) | `minfi`/ENmix QC and preprocessing → normalization → paired limma CpG analysis → annotation → bumphunter DMRs → GO. |
+| C. RNA-seq expression | [`C_RNA_seq/`](C_RNA_seq/) | Count filtering → edgeR normalization and paired differential expression → Ensembl/Entrez mapping → GO. |
+| D. Multi-omics comparison | [`D_Integration/`](D_Integration/) | Compare RNA genes with CpG-associated and DMR-associated genes, then compare RNA and methylation GO terms. |
 
 Rendered HTML versions are included beside the original notebooks so the complete code and its recorded output can be reviewed without rerunning the analysis.
 
@@ -43,7 +43,7 @@ The project is presented in four folders: [`A_Data_Overview/`](A_Data_Overview/)
 | 942 | GSM4775300 | GSM4775301 |
 | 933 | GSM4775302 | GSM4775303 |
 
-The large IDAT files are not stored in Git. They are publicly available from [GEO GSE157807](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157807). The root-level [`phenotype_data.txt`](phenotype_data.txt) was reconstructed from the executed notebook output and the IDAT filenames because the original local copy was no longer present; see [`metadata/README.md`](metadata/README.md).
+The large IDAT files are not stored in Git. They are publicly available from [GEO GSE157807](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157807). The reconstructed phenotype and metadata are in [`A_Data_Overview/`](A_Data_Overview/); the reconstruction is explained in that folder's README.
 
 ### RNA-seq: GSE194116
 
@@ -53,7 +53,7 @@ The large IDAT files are not stored in Git. They are publicly available from [GE
 - Differential-expression input: the study-author-deposited raw gene-count matrix [`GSE194116_Raw_gene_counts_matrix.txt`](GSE194116_Raw_gene_counts_matrix.txt).
 - Sample metadata: [`GSE194116_series_matrix.txt`](GSE194116_series_matrix.txt).
 
-The original project performed FastQC on 11 of the 12 paired-end SRA runs and summarized the outputs with [`multiqc_report.html`](multiqc_report.html). SRR17686677 (ESCC-5, patient 271121) is absent from that preserved report. The complete SRR-to-GSM and patient mapping is documented in [`metadata/rna_fastq_runs.tsv`](metadata/rna_fastq_runs.tsv).
+The original project performed FastQC on 11 of the 12 paired-end SRA runs and summarized the outputs with [`A_Data_Overview/fastqc/multiqc_report.html`](A_Data_Overview/fastqc/multiqc_report.html). SRR17686677 (ESCC-5, patient 271121) is absent from that preserved report. The complete SRR-to-GSM and patient mapping is documented in [`A_Data_Overview/metadata/rna_fastq_runs.tsv`](A_Data_Overview/metadata/rna_fastq_runs.tsv).
 
 Kallisto quantification was considered, but the HPC environment was unavailable. The downstream RNA analysis therefore starts from the published raw gene-count matrix rather than a project-generated Kallisto matrix. The repository does not claim that Kallisto, Trimmomatic, or HISAT2 processing was completed by the project author.
 
@@ -147,9 +147,9 @@ The project found widespread methylation differences and widespread expression d
 The submitted report and original rendered outputs should be consulted for the figures, tables, discussion, limitations, and interpretation:
 
 - [`docs/AHTA_Project_Chaeyoung_Kim.pdf`](docs/AHTA_Project_Chaeyoung_Kim.pdf)
-- [`Methylation_analysis.html`](Methylation_analysis.html)
-- [`Analysis_raw_count.html`](Analysis_raw_count.html)
-- [`results/Comparison.html`](results/Comparison.html)
+- [`B_DNA_Methylation/Methylation_analysis.html`](B_DNA_Methylation/Methylation_analysis.html)
+- [`C_RNA_seq/Analysis_raw_count.html`](C_RNA_seq/Analysis_raw_count.html)
+- [`D_Integration/Comparison.html`](D_Integration/Comparison.html)
 
 ## Repository structure mapped to A–D
 
