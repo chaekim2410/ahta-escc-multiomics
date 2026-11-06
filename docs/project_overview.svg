@@ -23,6 +23,8 @@
 
   <rect x="28" y="182" width="694" height="115" rx="18" fill="#dfe9e1" stroke="#6d9482" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="778" y="182" width="694" height="115" rx="18" fill="#e3e5ed" stroke="#7d8498" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="82" cy="239" r="25" fill="#6d9482"/><text x="82" y="247" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">DNA</text>
+  <circle cx="832" cy="239" r="25" fill="#7d8498"/><text x="832" y="247" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">RNA</text>
   <text x="375" y="232" text-anchor="middle" class="branch">DNA methylation</text>
   <text x="375" y="266" text-anchor="middle" class="body">GSE157807 · EPIC array · 5 paired samples</text>
   <text x="1125" y="232" text-anchor="middle" class="branch2">RNA-seq expression</text>
@@ -33,6 +35,8 @@
 
   <rect x="28" y="337" width="694" height="122" rx="18" fill="#e9f0eb" stroke="#6d9482" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="778" y="337" width="694" height="122" rx="18" fill="#ececf2" stroke="#7d8498" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="82" cy="398" r="25" fill="#6d9482"/><text x="82" y="406" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">QC</text>
+  <circle cx="832" cy="398" r="25" fill="#7d8498"/><text x="832" y="406" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">DE</text>
   <text x="375" y="385" text-anchor="middle" class="branch">minfi · ENmix · limma</text>
   <text x="375" y="419" text-anchor="middle" class="body">QC, normalize, paired CpG test</text>
   <text x="1125" y="385" text-anchor="middle" class="branch2">edgeR paired model</text>
@@ -43,6 +47,8 @@
 
   <rect x="28" y="499" width="694" height="122" rx="18" fill="#dfe9e1" stroke="#477b67" stroke-width="2" filter="url(#shadow)"/>
   <rect x="778" y="499" width="694" height="122" rx="18" fill="#e3e5ed" stroke="#5e667d" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="82" cy="560" r="25" fill="#477b67"/><text x="82" y="568" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">CpG</text>
+  <circle cx="832" cy="560" r="25" fill="#5e667d"/><text x="832" y="568" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">GENE</text>
   <text x="375" y="548" text-anchor="middle" class="result">35,994 CpGs · 3 DMRs</text>
   <text x="375" y="582" text-anchor="middle" class="body">bumphunter for methylation regions</text>
   <text x="1125" y="548" text-anchor="middle" class="result">7,305 / 24,315 genes</text>
@@ -53,6 +59,8 @@
 
   <rect x="28" y="661" width="694" height="115" rx="18" fill="#e9f0eb" stroke="#6d9482" stroke-width="1.5" filter="url(#shadow)"/>
   <rect x="778" y="661" width="694" height="115" rx="18" fill="#ececf2" stroke="#7d8498" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="82" cy="718" r="25" fill="#6d9482"/><text x="82" y="726" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">GO</text>
+  <circle cx="832" cy="718" r="25" fill="#7d8498"/><text x="832" y="726" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">GO</text>
   <text x="375" y="711" text-anchor="middle" class="branch">GO Biological Process</text>
   <text x="375" y="745" text-anchor="middle" class="body">from CpG / DMR-associated genes</text>
   <text x="1125" y="711" text-anchor="middle" class="branch2">GO Biological Process</text>
@@ -61,6 +69,7 @@
   <line x1="375" y1="776" x2="375" y2="824" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
   <line x1="1125" y1="776" x2="1125" y2="824" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
   <rect x="28" y="824" width="1444" height="82" rx="18" fill="#eadfd7" stroke="#ae6e52" stroke-width="1.5" filter="url(#shadow)"/>
+  <circle cx="82" cy="865" r="25" fill="#ae6e52"/><text x="82" y="873" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#fff">∩</text>
   <text x="750" y="875" text-anchor="middle" class="center">Integration through common gene IDs and GO terms</text>
 
   <line x1="250" y1="906" x2="250" y2="949" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>

@@ -4,9 +4,7 @@ This repository preserves the original R Markdown code, rendered reports, input 
 
 The four `.Rmd` files are preserved exactly as written in the original project. They have not been rewritten or silently corrected for this repository. Newly added documentation and reconstructed metadata are identified explicitly below.
 
-![ESCC multi-omics project overview](docs/project_overview.svg)
-
-The figure summarizes the project question, the two analysis branches, and the final integration result. Detailed methods and file-level explanations are provided in folders A–D.
+<img src="docs/project_overview.svg" alt="ESCC multi-omics project overview" width="760">
 
 ## Project objective
 
@@ -79,6 +77,8 @@ The original project performed FastQC on 11 of the 12 paired-end SRA runs and su
 Kallisto quantification was considered, but the HPC environment was unavailable. The downstream RNA analysis therefore starts from the published raw gene-count matrix rather than a project-generated Kallisto matrix. The repository does not claim that Kallisto, Trimmomatic, or HISAT2 processing was completed by the project author.
 
 ## Pipeline at a glance
+
+The figure above summarizes the project question, the two analysis branches, and the final integration result. Detailed methods and file-level explanations are provided in folders A–D.
 
 ```text
 GSE157807 IDAT files
@@ -164,11 +164,11 @@ These are the results reported in the submitted project.
 
 **Representative final figures:**
 
-![RNA and CpG overlap](D_Integration/figures/venn_02.png)
+<img src="D_Integration/figures/venn_02.png" alt="RNA and CpG overlap" width="520">
 
-![RNA and DMR overlap](D_Integration/figures/venn_01.png)
+<img src="D_Integration/figures/venn_01.png" alt="RNA and DMR overlap" width="520">
 
-![Shared RNA and methylation GO terms](D_Integration/figures/venn_03.png)
+<img src="D_Integration/figures/venn_03.png" alt="Shared RNA and methylation GO terms" width="520">
 
 The stage-specific numbers and figures are documented in the README inside folders A, B, C, and D.
 

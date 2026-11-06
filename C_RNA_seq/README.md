@@ -19,9 +19,9 @@ This folder contains the analysis of the published GSE194116 gene-count matrix. 
 
 Representative primary figures:
 
-![RNA-seq MDS plot](results/plotMDS_ESCC.jpg)
+<img src="results/plotMDS_ESCC.jpg" alt="RNA-seq MDS plot" width="520">
 
-![RNA-seq volcano plot](results/VolcanoPlot_ESCC.jpg)
+<img src="results/VolcanoPlot_ESCC.jpg" alt="RNA-seq volcano plot" width="520">
 
 ## Key results
 
