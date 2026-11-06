@@ -4,6 +4,10 @@ This repository preserves the original R Markdown code, rendered reports, input 
 
 The four `.Rmd` files are preserved exactly as written in the original project. They have not been rewritten or silently corrected for this repository. Newly added documentation and reconstructed metadata are identified explicitly below.
 
+![ESCC multi-omics project overview](docs/project_overview.svg)
+
+The figure summarizes the project question, the two analysis branches, and the final integration result. Detailed methods and file-level explanations are provided in folders A–D.
+
 ## Project objective
 
 The project asks whether ESCC-associated changes in DNA methylation coincide with changes in gene expression. It has three analytical objectives:

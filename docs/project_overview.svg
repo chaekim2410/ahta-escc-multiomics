@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">ESCC multi-omics project overview</title>
+  <desc id="desc">Paired methylation and RNA-seq analyses are integrated through gene and GO overlaps.</desc>
+  <defs>
+    <linearGradient id="header" x1="0" x2="1"><stop offset="0" stop-color="#17324d"/><stop offset="1" stop-color="#285b7a"/></linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity=".16"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#61788a"/></marker>
+    <style>
+      .title{font:700 32px Arial,sans-serif;fill:#fff}.subtitle{font:400 17px Arial,sans-serif;fill:#dcebf3}
+      .section{font:700 20px Arial,sans-serif;fill:#17324d}.body{font:400 16px Arial,sans-serif;fill:#263746}.small{font:400 14px Arial,sans-serif;fill:#526574}
+      .metric{font:700 27px Arial,sans-serif;fill:#17324d}.metriclabel{font:400 14px Arial,sans-serif;fill:#526574}
+    </style>
+  </defs>
+  <rect width="1400" height="760" fill="#f5f8fa"/>
+  <rect x="0" y="0" width="1400" height="120" fill="url(#header)"/>
+  <text x="60" y="52" class="title">ESCC Multi-Omics Analysis</text>
+  <text x="60" y="86" class="subtitle">Do tumor-associated methylation changes coincide with gene-expression changes?</text>
+
+  <rect x="60" y="155" width="1280" height="95" rx="16" fill="#e8f1f5" filter="url(#shadow)"/>
+  <text x="90" y="190" class="section">A · Data and paired design</text>
+  <text x="90" y="220" class="body">GSE157807 EPIC methylation: 5 ESCC–normal pairs</text>
+  <text x="560" y="220" class="body">GSE194116 RNA-seq: 6 ESCC–normal pairs</text>
+  <text x="1050" y="220" class="body">FastQC/MultiQC quality review</text>
+
+  <line x1="420" y1="250" x2="420" y2="295" stroke="#61788a" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="980" y1="250" x2="980" y2="295" stroke="#61788a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="300" width="600" height="230" rx="16" fill="#fff" filter="url(#shadow)"/>
+  <rect x="740" y="300" width="600" height="230" rx="16" fill="#fff" filter="url(#shadow)"/>
+  <text x="90" y="340" class="section">B · DNA methylation</text>
+  <text x="90" y="375" class="body">minfi / ENmix: signal QC and normalization</text>
+  <text x="90" y="407" class="body">limma: paired differential CpGs</text>
+  <text x="90" y="439" class="body">bumphunter: differential methylated regions</text>
+  <text x="90" y="471" class="body">CpG / DMR genes → GO processes</text>
+  <text x="90" y="510" class="metric">35,994 CpGs · 3 DMRs</text>
+
+  <text x="770" y="340" class="section">C · RNA-seq expression</text>
+  <text x="770" y="375" class="body">edgeR: filtering, normalization, paired model</text>
+  <text x="770" y="407" class="body">Differential expression and gene ID mapping</text>
+  <text x="770" y="439" class="body">GO Biological Process enrichment</text>
+  <text x="770" y="471" class="body">MDS, BCV, MA, and volcano diagnostics</text>
+  <text x="770" y="510" class="metric">7,305 / 24,315 genes</text>
+
+  <line x1="360" y1="530" x2="620" y2="610" stroke="#61788a" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1040" y1="530" x2="780" y2="610" stroke="#61788a" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="300" y="600" width="800" height="105" rx="16" fill="#dcecf2" filter="url(#shadow)"/>
+  <text x="330" y="638" class="section">D · Integration</text>
+  <text x="330" y="670" class="body">Common gene IDs and GO terms connect the two analyses</text>
+  <text x="330" y="696" class="metric">RNA ∩ CpG: 1,000 genes · shared GO: 26 · RNA ∩ DMR: 0</text>
+</svg>
