@@ -15,3 +15,10 @@ The three extracted Venn figures from the rendered HTML report are in `figures/`
 ![RNA versus CpG/DMR integration](figures/venn_02.png)
 
 ![RNA versus methylation GO terms](figures/venn_03.png)
+
+## Key results
+
+- RNA and significant DMR-associated genes: **0 overlapping genes**.
+- RNA and significant CpG-associated genes: **1,000 overlapping genes**.
+- RNA and methylation GO results: **26 shared terms**.
+- Shared candidate genes discussed in the report include `CFLAR`, `KDM1A`, `RBM6`, `STPG1`, `SEMA3F`, `ANKIB1`, `HECW1`, `MAD1L1`, and `ICA1`.

@@ -22,3 +22,11 @@ Representative primary figures:
 ![RNA-seq MDS plot](results/plotMDS_ESCC.jpg)
 
 ![RNA-seq volcano plot](results/VolcanoPlot_ESCC.jpg)
+
+## Key results
+
+- **7,305 of 24,315 genes** were reported as differentially expressed at FDR < 0.05.
+- The result contained **3,780 upregulated** and **3,525 downregulated** genes.
+- **2,066 GO Biological Process terms** were reported as significant after FDR correction.
+
+Examples highlighted in the report include `CST1`, `KRT75`, `MMP11`, `P2RX2`, and `ADIPOQ` among the strongest differential-expression results.

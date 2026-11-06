@@ -21,3 +21,7 @@ The original FASTQ files are not present in the desktop project or this reposito
 ## Notebook
 
 `Data_Overview_Chaeyoung_Kim.Rmd` and its HTML report show the original data inspection steps. The overview notebook loads several teaching/example packages; the main downstream analyses are in folders B and C.
+
+## Key data/QC result
+
+The metadata defines matched tumor-normal pairs for the methylation and RNA analyses. The preserved MultiQC report contains FastQC output for **11 of 12** RNA-seq runs; `SRR17686677` is the missing run.

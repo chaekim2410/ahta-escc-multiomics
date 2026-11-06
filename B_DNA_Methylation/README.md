@@ -21,3 +21,11 @@ This folder contains the EPIC methylation-array analysis. Each probe measures me
 The most important results are the CpG result table, the DMR-associated gene list, and the two GO tables. Detailed file meanings are in `results/README.md`.
 
 Representative QC figure: [`figures/figure-latex/unnamed-chunk-14-1.pdf`](figures/figure-latex/unnamed-chunk-14-1.pdf) (MDS view of methylation samples). The remaining raw intensity and beta/M-value figures are listed in [`figures/figure-latex/README.md`](figures/figure-latex/README.md).
+
+## Key results
+
+- **35,994 CpGs** were reported as significant at adjusted p-value < 0.05.
+- `bumphunter` identified **6,885 candidate DMRs**, with **3** significant at FWER < 0.1.
+- **Six of the top 50** GO terms overlapped between the CpG and DMR analyses.
+
+The report discusses CpG-associated processes such as cell morphogenesis and neuron projection development, and DMR-associated processes including response to growth factors and regulation of cell differentiation.

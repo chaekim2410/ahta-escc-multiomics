@@ -140,42 +140,33 @@ The RNA notebook uses `edgeR`, `limma`, `AnnotationDbi`, `GO.db`, `org.Hs.eg.db`
 
 ## Major results reported in the submitted project
 
-The values below are the results reported in the original submitted analysis and rendered notebooks; they are preserved as historical project results rather than silently recalculated.
+These are the results reported in the submitted project.
 
-- 35,994 CpG probes (4.18%) were reported as differentially methylated at adjusted p-value < 0.05.
-- `bumphunter` identified 6,885 candidate regions, of which three were significant at FWER < 0.1.
-- Six of the top 50 GO terms overlapped between the CpG- and DMR-based methylation analyses.
-- Of 24,315 genes retained in the RNA analysis, 7,305 were reported as differentially expressed at FDR < 0.05: 3,780 with positive and 3,525 with negative log-fold change.
-- 2,066 RNA GO Biological Process terms were reported as significant after FDR correction.
-- The submitted comparison reported 1,000 overlapping genes between the RNA and CpG-associated gene sets and 26 overlapping GO terms.
-- Genes discussed as shared candidates included `CFLAR`, `KDM1A`, `RBM6`, `STPG1`, `SEMA3F`, `ANKIB1`, `HECW1`, `MAD1L1`, and `ICA1`.
+| Result | Reported value |
+|---|---:|
+| Differentially methylated CpGs | **35,994** (4.18%, adjusted p-value < 0.05) |
+| Candidate DMRs | **6,885**; **3** significant at FWER < 0.1 |
+| Differentially expressed genes | **7,305 / 24,315** at FDR < 0.05 |
+| RNA up/down direction | **3,780 up**, **3,525 down** |
+| Significant RNA GO Biological Processes | **2,066** |
+| RNA/CpG-associated gene overlap | **1,000** |
+| Shared RNA/methylation GO terms | **26** |
 
-### One or two key outputs from each stage
+### Project question and conclusion
 
-- **A: data/QC** — the paired sample metadata connects each tumor to its matched normal sample; the preserved MultiQC report contains FastQC results for 11 of 12 RNA-seq runs.
-- **B: methylation** — 35,994 CpGs were reported as significant, and three DMRs passed the reported FWER threshold.
-- **C: RNA-seq** — 7,305 of 24,315 retained genes were reported as differentially expressed at FDR < 0.05.
-- **D: integration** — the submitted comparison reported 1,000 RNA/CpG-associated gene overlaps and 26 shared GO terms.
+**Question:** Do ESCC-associated methylation changes coincide with changes in gene expression?
 
-### Major result figures
+**Answer from this project:** ESCC showed broad methylation and expression changes. The strongest integration signal was at individual CpG-associated genes: **1,000 genes overlapped** with significant RNA genes. Significant DMR-associated genes showed **no overlap** with the RNA gene set, while the GO comparison found **26 shared biological processes**. The results support a shared epigenetic and transcriptional signal, but they do not establish a causal methylation-to-expression mechanism.
 
-The representative figures below are the ones that communicate the final analysis most directly. The full rendered reports remain available in each A–D folder.
-
-**RNA sample separation (MDS)**
-
-![RNA-seq MDS plot](C_RNA_seq/results/plotMDS_ESCC.jpg)
-
-**RNA versus CpG-associated genes**
+**Representative final figures:**
 
 ![RNA and CpG overlap](D_Integration/figures/venn_02.png)
 
-**RNA versus DMR-associated genes**
-
 ![RNA and DMR overlap](D_Integration/figures/venn_01.png)
 
-**Shared RNA and methylation GO terms**
+![Shared RNA and methylation GO terms](D_Integration/figures/venn_03.png)
 
-![RNA and methylation GO overlap](D_Integration/figures/venn_03.png)
+The stage-specific numbers and figures are documented in the README inside folders A, B, C, and D.
 
 ### Conclusion
 
