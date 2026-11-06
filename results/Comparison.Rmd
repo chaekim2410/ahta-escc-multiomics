@@ -1,0 +1,144 @@
+---
+title: "Result comparison"
+author: "Chaeyoung Kim"
+date: "2024-12-19"
+output:
+  html_document: default
+  word_document: default
+---
+This R markdown the comparison of results of two data analysis.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("/Users/kimchaeyoung/Desktop/Applied_HT_analysis/Project/results/")
+dir <- "/Users/kimchaeyoung/Desktop/Applied_HT_analysis/Project/results/"
+```
+
+```{r}
+library(org.Hs.eg.db)
+library(VennDiagram)
+```
+
+## Load in data
+```{r}
+results_files <- list.files(pattern = ".*.txt")
+for (i in 1:length(results_files)) { #loop through .txt files, assign them to their respective variables
+assign(sub("\\..*","",results_files[i]), read.table(results_files[i])) }
+```
+
+
+
+## 1. Fitration of RNA_seq results
+This section filters the RNA-seq results based on an FDR threshold of 0.05, sorts the data by row names, and then performs an analysis based on CpG methylation data. A Venn diagram is created to visualize the overlap between the significant RNA-seq results and the CpG analysis.
+```{r}
+# RNAseq filtering
+# Filtering RNAseq results with an FDR less than 0.05 and sorting the results by row names
+RNAseq_filtered <- RNAseq_results[RNAseq_results$FDR < 0.05, ]
+RNAseq_filtered <- RNAseq_filtered[order(rownames(RNAseq_filtered)), ]
+ENS_RNA <- rownames(RNAseq_filtered[RNAseq_filtered$FDR<0.05,])
+```
+
+##  2.Comparison between RNA-seq analysis vs differentially methylated regions (DMRs)
+- no overlappings
+```{r}
+EntrezIDs_bmp <- read.table("EntrezIDs_bmp_results.txt", header = TRUE)
+
+# Extracting the 'x' column as a vector
+EntrezIDs_bmp_vec <- EntrezIDs_bmp$x
+ENS_bmp <- mapIds(org.Hs.eg.db, as.character(EntrezIDs_bmp_vec), 'ENSEMBL', 'ENTREZID')
+ENS_bmp_uniq <- ENS_bmp[!(duplicated(ENS_bmp) | is.na(ENS_bmp))]
+
+# Create a Venn diagram to visualize the overlap between RNAseq results and DMRs
+grid.newpage()
+draw.pairwise.venn(
+  area1 = length(rownames(RNAseq_filtered)),  # RNAseq filtered area
+  area2 = length(ENS_bmp_uniq),               # CpG analysis area
+  cross.area = length(intersect(rownames(RNAseq_filtered), ENS_bmp_uniq)),  # Intersection area
+  category = c("Significant for RNA-seq", "Significant differential methylation (bumps) "),  # Category labels
+  fill = c("skyblue", "mediumorchid"),       
+  lty = "blank"                               
+)
+
+```
+## 3. Comparison betwen RNA-seq analysis and CpG based analysis 
+```{r}
+EntrezIDs_CpG <- read.table("EntrezIDs_CpG_results.txt", header = TRUE)
+
+# Extracting the 'x' column as a vector
+EntrezIDs_CpG_vec <- EntrezIDs_CpG$x
+ENS_CpG <- mapIds(org.Hs.eg.db, as.character(EntrezIDs_CpG_vec), 'ENSEMBL', 'ENTREZID')
+ENS_CpG_uniq <- ENS_CpG[!(duplicated(ENS_CpG) | is.na(ENS_CpG))]
+
+# Create a Venn diagram to visualize the overlap between RNAseq results and CpG methylation results
+grid.newpage()
+draw.pairwise.venn(
+  area1 = length(rownames(RNAseq_filtered)),  # RNAseq filtered area
+  area2 = length(ENS_CpG_uniq),               # CpG analysis area
+  cross.area = length(intersect(rownames(RNAseq_filtered), ENS_CpG_uniq)),  # Intersection area
+  category = c("Significant for RNAseq", "Significant for CpG"),  # Category labels
+  fill = c("skyblue", "mediumorchid"),        
+  lty = "blank"                              
+)
+
+```
+## 4. Genes and Terms of interest
+The diagram reveals that there are 26 GO terms that are shared by both RNA-seq and methylation analyses, which might represent biological processes or functions that are affected by both gene expression and DNA methylation
+```{r}
+print("Ensembl gene IDs that are significant:")
+
+# Extract GO terms from RNA-seq analysis results
+Metterms <- bmp_GSA_results$Term  # Extract GO terms related to RNA-seq
+
+# Extract GO terms from methylation analysis results
+RNAterms <- RNAseq_GSA_results$Term  # Extract GO terms related to methylation analysis
+
+# Create a new graphics page for the Venn diagram
+grid.newpage()
+grid.newpage()
+draw.pairwise.venn(length(RNAterms), length(Metterms), length(intersect(RNAterms,Metterms)), category = c("Top terms for RNA", "Top terms for Methylation"),
+lty = rep("blank", 2), fill = c("light blue", "mediumorchid"), alpha = rep(0.5, 2), cat.pos = c(0, 0), cat.dist = rep(0.025, 2))
+```
+
+## 5. Ensembl gene IDs that are significant for the two  analyses (RNAseq and CpG)
+This section finds the common genes between RNA-seq and CpG methylation analysis.
+```{r}
+# Find common genes between RNAseq results and CpG analysis
+print("Ensembl gene IDs that are significant for the two analyses:")
+common_genes <- intersect(ENS_RNA, ENS_CpG)  # Identify genes that are significant in both RNAseq and CpG analyses\
+head(common_genes)
+
+# Top GO terms overlapping for the two analyses
+print("Top overlapping GO terms:")
+common_terms <- intersect(RNAterms, Metterms)  # Identify common GO terms between RNAseq and methylation analysis
+head(common_terms)
+
+# Genes of interest (GOI) based on the common genes found in RNAseq and CpG
+# Extract genes of interest from RNAseq results based on the common genes.
+
+GOI <- RNAseq_results[which(rownames(RNAseq_results) %in% common_genes), ]
+rownames(GOI) <- mapIds(org.Hs.eg.db, rownames(GOI), 'SYMBOL', 'ENSEMBL')  # Convert ENSEMBL IDs to SYMBOLs
+
+# Terms of interest (POI) based on the common GO terms
+# Extract terms of interest based on the common GO terms.
+POI <- RNAseq_GSA_results[which(RNAseq_GSA_results$Term %in% common_terms), ]
+
+# View top 10 rows of both GOI and POI
+# Display the top 10 genes and GO terms of interest.
+```
+
+### 5.1. GOI
+In this analysis, positive logFC values indicate up-regulated genes, meaning these genes have increased expression in the experimental condition compared to the control. Genes like CFLAR, KDM1A, and RBM6 are examples of up-regulated genes. On the other hand, negative logFC values indicate down-regulated genes, meaning these genes have decreased expression in the experimental condition. Examples of down-regulated genes include STPG1, SEMA3F, ANKIB1, HECW1, MAD1L1, and ICA1, which all show reduced expression. Therefore, genes with positive logFC values are up-regulated, while genes with negative logFC values are down-regulated in the experimental group.
+```{r}
+head(GOI, n=10)
+```
+
+### 5.2. POI
+The terms with higher DE values indicate biological processes that are most impacted by the experimental conditions. For example, the "cellular process" term (GO:0009987) is associated with 6561 DE genes, meaning that a significant portion of the genes in this category show altered expression.
+```{r}
+head(POI, n=10)
+
+```
+
+
