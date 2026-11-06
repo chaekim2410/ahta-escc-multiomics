@@ -1,57 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="900" viewBox="0 0 1500 900" role="img" aria-labelledby="title desc">
-  <title id="title">ESCC tumor multi-omics study overview</title>
-  <desc id="desc">Paired tumor and adjacent normal tissues are profiled with DNA methylation and RNA sequencing, then integrated at gene and pathway levels.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1180" viewBox="0 0 1500 1180" role="img" aria-labelledby="title desc">
+  <title id="title">ESCC paired multi-omics pipeline</title>
+  <desc id="desc">DNA methylation and RNA-seq branches from paired ESCC tumor and normal samples converge in a multi-omics integration.</desc>
   <defs>
-    <linearGradient id="navy" x1="0" x2="1"><stop offset="0" stop-color="#102a43"/><stop offset="1" stop-color="#1f4e68"/></linearGradient>
-    <linearGradient id="tumor" x1="0" x2="1"><stop offset="0" stop-color="#b73555"/><stop offset="1" stop-color="#7c1f43"/></linearGradient>
-    <linearGradient id="normal" x1="0" x2="1"><stop offset="0" stop-color="#55a6bd"/><stop offset="1" stop-color="#277b99"/></linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-opacity=".18"/></filter>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#718596"/></marker>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity=".14"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#77756e"/></marker>
     <style>
-      .h{font:700 34px Arial,sans-serif;fill:#fff}.sub{font:400 18px Arial,sans-serif;fill:#d8e8ef}
-      .label{font:700 23px Arial,sans-serif;fill:#102a43}.body{font:400 17px Arial,sans-serif;fill:#304858}
-      .white{font:700 23px Arial,sans-serif;fill:#fff}.smallwhite{font:400 16px Arial,sans-serif;fill:#f1f7fa}
-      .metric{font:700 26px Arial,sans-serif;fill:#102a43}.muted{font:400 15px Arial,sans-serif;fill:#617686}
+      .head{font:700 34px Arial,sans-serif;fill:#3f403c}.sub{font:400 19px Arial,sans-serif;fill:#5c5b55}
+      .branch{font:700 27px Arial,sans-serif;fill:#33453d}.branch2{font:700 27px Arial,sans-serif;fill:#3e4654}
+      .body{font:400 18px Arial,sans-serif;fill:#454640}.body2{font:400 18px Arial,sans-serif;fill:#50535b}
+      .result{font:700 30px Arial,sans-serif;fill:#733b25}.result2{font:400 19px Arial,sans-serif;fill:#733b25}
+      .small{font:400 16px Arial,sans-serif;fill:#6b6b64}.center{font:700 27px Arial,sans-serif;fill:#633a29}
     </style>
   </defs>
-  <rect width="1500" height="900" fill="#f5f8fa"/>
-  <rect width="1500" height="125" fill="url(#navy)"/>
-  <text x="65" y="55" class="h">ESCC multi-omics: tumor versus adjacent normal</text>
-  <text x="65" y="91" class="sub">Do DNA methylation changes coincide with changes in gene expression?</text>
+  <rect width="1500" height="1180" fill="#faf9f5"/>
 
-  <text x="65" y="170" class="label">Paired tissue design</text>
-  <rect x="65" y="195" width="260" height="120" rx="18" fill="url(#normal)" filter="url(#shadow)"/>
-  <text x="95" y="245" class="white">ADJACENT NORMAL</text><text x="95" y="278" class="smallwhite">reference tissue</text>
-  <rect x="360" y="195" width="260" height="120" rx="18" fill="url(#tumor)" filter="url(#shadow)"/>
-  <text x="390" y="245" class="white">ESCC TUMOR</text><text x="390" y="278" class="smallwhite">disease tissue</text>
-  <line x1="325" y1="255" x2="355" y2="255" stroke="#718596" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="675" y="230" class="body">Each tumor is compared with its matched normal</text>
-  <text x="675" y="263" class="body">from the same patient to control patient-specific variation.</text>
+  <rect x="28" y="28" width="1444" height="115" rx="20" fill="#f0eee8" stroke="#77756e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="750" y="74" text-anchor="middle" class="head">ESCC tumor vs matched normal: paired multi-omics</text>
+  <text x="750" y="110" text-anchor="middle" class="sub">Do tumor-associated methylation changes coincide with expression changes?</text>
 
-  <path d="M490 325 C490 360 360 350 360 405" fill="none" stroke="#718596" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M490 325 C490 360 1140 350 1140 405" fill="none" stroke="#718596" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="375" y1="143" x2="375" y2="182" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1125" y1="143" x2="1125" y2="182" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
 
-  <rect x="65" y="405" width="580" height="255" rx="20" fill="#fff" filter="url(#shadow)"/>
-  <text x="100" y="450" class="label">DNA methylation</text>
-  <text x="100" y="485" class="body">EPIC array → CpG methylation profiles</text>
-  <text x="100" y="520" class="body">minfi / ENmix → QC and normalization</text>
-  <text x="100" y="555" class="body">limma → differential CpGs</text>
-  <text x="100" y="590" class="body">bumphunter → differential regions</text>
-  <text x="100" y="630" class="metric">35,994 CpGs · 3 DMRs</text>
+  <rect x="28" y="182" width="694" height="115" rx="18" fill="#dfe9e1" stroke="#6d9482" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="778" y="182" width="694" height="115" rx="18" fill="#e3e5ed" stroke="#7d8498" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="375" y="232" text-anchor="middle" class="branch">DNA methylation</text>
+  <text x="375" y="266" text-anchor="middle" class="body">GSE157807 · EPIC array · 5 paired samples</text>
+  <text x="1125" y="232" text-anchor="middle" class="branch2">RNA-seq expression</text>
+  <text x="1125" y="266" text-anchor="middle" class="body2">GSE194116 · count matrix · 6 paired samples</text>
 
-  <rect x="855" y="405" width="580" height="255" rx="20" fill="#fff" filter="url(#shadow)"/>
-  <text x="890" y="450" class="label">RNA expression</text>
-  <text x="890" y="485" class="body">RNA-seq counts → gene expression profiles</text>
-  <text x="890" y="520" class="body">edgeR → normalization and paired model</text>
-  <text x="890" y="555" class="body">Differential expression → altered genes</text>
-  <text x="890" y="590" class="body">GO enrichment → altered processes</text>
-  <text x="890" y="630" class="metric">7,305 / 24,315 genes</text>
+  <line x1="375" y1="297" x2="375" y2="337" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1125" y1="297" x2="1125" y2="337" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
 
-  <line x1="355" y1="660" x2="650" y2="755" stroke="#718596" stroke-width="4" marker-end="url(#arrow)"/>
-  <line x1="1145" y1="660" x2="850" y2="755" stroke="#718596" stroke-width="4" marker-end="url(#arrow)"/>
-  <rect x="300" y="745" width="900" height="110" rx="22" fill="#e8d8ed" filter="url(#shadow)"/>
-  <text x="345" y="785" class="label">Multi-omics integration</text>
-  <text x="345" y="818" class="body">shared genes and shared biological processes</text>
-  <text x="830" y="785" class="metric">RNA ∩ CpG = 1,000</text>
-  <text x="830" y="818" class="metric">RNA ∩ DMR = 0 · GO overlap = 26</text>
+  <rect x="28" y="337" width="694" height="122" rx="18" fill="#e9f0eb" stroke="#6d9482" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="778" y="337" width="694" height="122" rx="18" fill="#ececf2" stroke="#7d8498" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="375" y="385" text-anchor="middle" class="branch">minfi · ENmix · limma</text>
+  <text x="375" y="419" text-anchor="middle" class="body">QC, normalize, paired CpG test</text>
+  <text x="1125" y="385" text-anchor="middle" class="branch2">edgeR paired model</text>
+  <text x="1125" y="419" text-anchor="middle" class="body2">Filter, normalize, differential-expression test</text>
+
+  <line x1="375" y1="459" x2="375" y2="499" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1125" y1="459" x2="1125" y2="499" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="28" y="499" width="694" height="122" rx="18" fill="#dfe9e1" stroke="#477b67" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="778" y="499" width="694" height="122" rx="18" fill="#e3e5ed" stroke="#5e667d" stroke-width="2" filter="url(#shadow)"/>
+  <text x="375" y="548" text-anchor="middle" class="result">35,994 CpGs · 3 DMRs</text>
+  <text x="375" y="582" text-anchor="middle" class="body">bumphunter for methylation regions</text>
+  <text x="1125" y="548" text-anchor="middle" class="result">7,305 / 24,315 genes</text>
+  <text x="1125" y="582" text-anchor="middle" class="body2">differentially expressed at FDR &lt; 0.05</text>
+
+  <line x1="375" y1="621" x2="375" y2="661" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1125" y1="621" x2="1125" y2="661" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="28" y="661" width="694" height="115" rx="18" fill="#e9f0eb" stroke="#6d9482" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="778" y="661" width="694" height="115" rx="18" fill="#ececf2" stroke="#7d8498" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="375" y="711" text-anchor="middle" class="branch">GO Biological Process</text>
+  <text x="375" y="745" text-anchor="middle" class="body">from CpG / DMR-associated genes</text>
+  <text x="1125" y="711" text-anchor="middle" class="branch2">GO Biological Process</text>
+  <text x="1125" y="745" text-anchor="middle" class="body2">from differentially expressed genes</text>
+
+  <line x1="375" y1="776" x2="375" y2="824" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1125" y1="776" x2="1125" y2="824" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="28" y="824" width="1444" height="82" rx="18" fill="#eadfd7" stroke="#ae6e52" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="750" y="875" text-anchor="middle" class="center">Integration through common gene IDs and GO terms</text>
+
+  <line x1="250" y1="906" x2="250" y2="949" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="750" y1="906" x2="750" y2="949" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="1250" y1="906" x2="1250" y2="949" stroke="#77756e" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="28" y="949" width="444" height="130" rx="18" fill="#f1e7df" stroke="#ae6e52" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="528" y="949" width="444" height="130" rx="18" fill="#f1e7df" stroke="#ae6e52" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="1028" y="949" width="444" height="130" rx="18" fill="#f0eee8" stroke="#77756e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="250" y="1003" text-anchor="middle" class="result">1,000 genes</text><text x="250" y="1038" text-anchor="middle" class="result2">RNA ∩ CpG</text>
+  <text x="750" y="1003" text-anchor="middle" class="result">26 GO terms</text><text x="750" y="1038" text-anchor="middle" class="result2">shared processes</text>
+  <text x="1250" y="1003" text-anchor="middle" class="result" fill="#4f504b">0 genes</text><text x="1250" y="1038" text-anchor="middle" class="small">RNA ∩ DMR</text>
 </svg>
