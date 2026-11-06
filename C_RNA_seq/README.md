@@ -16,3 +16,9 @@ This folder contains the analysis of the published GSE194116 gene-count matrix. 
 - `Analysis_raw_count.Rmd` / `.html`: original RNA analysis code and rendered report.
 - `results/`: primary edgeR result tables, diagnostic plots, and RNA GO results.
 - `exploratory/`: preserved DESeq2 and limma result files and plots. These are supplementary analyses; edgeR is the primary RNA workflow.
+
+Representative primary figures:
+
+![RNA-seq MDS plot](results/plotMDS_ESCC.jpg)
+
+![RNA-seq volcano plot](results/VolcanoPlot_ESCC.jpg)

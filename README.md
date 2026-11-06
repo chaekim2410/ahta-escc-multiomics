@@ -144,12 +144,21 @@ The values below are the results reported in the original submitted analysis and
 
 The project found widespread methylation differences and widespread expression differences between ESCC and matched normal tissue. The integration step found overlap at both the gene and biological-process levels, suggesting that some ESCC-related processes may be reflected in both epigenetic and transcriptional changes. The comparison is an association analysis; it does not establish that methylation directly caused the expression changes.
 
+### Limitations
+
+- The paired cohorts are small: five methylation pairs and six RNA-seq pairs.
+- The preserved MultiQC report is missing one of the 12 RNA-seq runs, and the original FASTQ files are not available in the project folder.
+- Kallisto, Trimmomatic, and HISAT2 were considered but were not completed as a project-generated upstream workflow; RNA analysis starts from the published count matrix.
+- The integration compares gene and GO overlap. It does not test causal regulation or validate methylation-expression relationships experimentally.
+
 The submitted report and original rendered outputs should be consulted for the figures, tables, discussion, limitations, and interpretation:
 
 - [`docs/AHTA_Project_Chaeyoung_Kim.pdf`](docs/AHTA_Project_Chaeyoung_Kim.pdf)
 - [`B_DNA_Methylation/Methylation_analysis.html`](B_DNA_Methylation/Methylation_analysis.html)
 - [`C_RNA_seq/Analysis_raw_count.html`](C_RNA_seq/Analysis_raw_count.html)
 - [`D_Integration/Comparison.html`](D_Integration/Comparison.html)
+
+The most important integration figures are also available directly in [`D_Integration/figures/`](D_Integration/figures/): RNA versus CpG genes, RNA versus DMR genes, and RNA versus methylation GO terms.
 
 ## Repository structure mapped to A–D
 
@@ -160,6 +169,7 @@ C_RNA_seq/                  C. RNA notebook, primary edgeR results, and explorat
 D_Integration/              D. Comparison notebook and integration input tables
 Original root files/        Original notebooks, reports, and result directories retained for provenance
 Reports                    `docs/` contains the submitted PDF and editable document
+Key figures                `D_Integration/figures/` contains extracted integration Venn figures
 ```
 
 The physical directories remain in their original locations. The A–D labels describe how the files fit into the analysis, so the original notebooks and their relative paths remain intact.
@@ -174,7 +184,7 @@ The notebooks are intentionally preserved unchanged. Consequently, they still co
 4. Change only the local `setwd()` and IDAT-directory paths in a personal working copy.
 5. Render the notebooks in the order shown in **Analysis outline**.
 
-Raw IDAT and FASTQ files, `.RData` workspaces, temporary caches, and course-provided assignment/example documents are intentionally excluded from Git.
+Raw FASTQ files, `.RData` workspaces, temporary caches, and course-provided assignment/example documents are excluded from Git. The 20 methylation IDAT files are included under `A_Data_Overview/idat/GSE157807_RAW/` because they are the direct input for the methylation notebook.
 
 ## Provenance note
 

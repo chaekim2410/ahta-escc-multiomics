@@ -19,3 +19,5 @@ This folder contains the EPIC methylation-array analysis. Each probe measures me
 - `results/`: gene identifiers and GO tables produced by the methylation and DMR analyses.
 
 The most important results are the CpG result table, the DMR-associated gene list, and the two GO tables. Detailed file meanings are in `results/README.md`.
+
+Representative QC figure: [`figures/figure-latex/unnamed-chunk-14-1.pdf`](figures/figure-latex/unnamed-chunk-14-1.pdf) (MDS view of methylation samples). The remaining raw intensity and beta/M-value figures are listed in [`figures/figure-latex/README.md`](figures/figure-latex/README.md).
