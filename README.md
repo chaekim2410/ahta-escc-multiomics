@@ -4,7 +4,9 @@ This repository preserves the original R Markdown code, rendered reports, input 
 
 The four `.Rmd` files are preserved exactly as written in the original project. They have not been rewritten or silently corrected for this repository. Newly added documentation and reconstructed metadata are identified explicitly below.
 
+<div align="center">
 <img src="docs/escc_multiomics_hero.png" alt="ESCC tumor and adjacent normal multi-omics illustration" width="760">
+</div>
 
 ## Project objective
 
@@ -164,11 +166,11 @@ These are the results reported in the submitted project.
 
 **Representative final figures:**
 
-<img src="D_Integration/figures/venn_02.png" alt="RNA and CpG overlap" width="520">
+<div align="center"><img src="D_Integration/figures/venn_02.png" alt="RNA and CpG overlap" width="520"></div>
 
-<img src="D_Integration/figures/venn_01.png" alt="RNA and DMR overlap" width="520">
+<div align="center"><img src="D_Integration/figures/venn_01.png" alt="RNA and DMR overlap" width="520"></div>
 
-<img src="D_Integration/figures/venn_03.png" alt="Shared RNA and methylation GO terms" width="520">
+<div align="center"><img src="D_Integration/figures/venn_03.png" alt="Shared RNA and methylation GO terms" width="520"></div>
 
 The stage-specific numbers and figures are documented in the README inside folders A, B, C, and D.
 

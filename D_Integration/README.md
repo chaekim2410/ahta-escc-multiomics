@@ -12,9 +12,9 @@ This folder combines the saved methylation and RNA results. It does not add meth
 
 The three extracted Venn figures from the rendered HTML report are in `figures/`. They show RNA/CpG overlap, RNA/DMR overlap, and RNA/methylation GO-term overlap. The HTML report remains the authoritative rendered record.
 
-<img src="figures/venn_02.png" alt="RNA versus CpG integration" width="520">
+<div align="center"><img src="figures/venn_02.png" alt="RNA versus CpG integration" width="520"></div>
 
-<img src="figures/venn_03.png" alt="RNA versus methylation GO terms" width="520">
+<div align="center"><img src="figures/venn_03.png" alt="RNA versus methylation GO terms" width="520"></div>
 
 ## Key results
 
